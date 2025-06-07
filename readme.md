@@ -64,3 +64,51 @@ sudo systemctl status cron
 
 ## htop does not run non-interactively hence using top
 ---
+
+# Task 2 User Management and Access Control
+
+#### Create User Accounts
+``` 
+sudo adduser sarah
+sudo adduser mike
+```
+
+![User_creation](images/create-users.png)
+
+#### Create Dedicated Workspaces
+``` 
+sudo mkdir -p /home/sarah/workspace
+sudo mkdir -p /home/mike/workspace
+```
+
+#### Set Ownership and Permissions
+``` 
+sudo chown -R sarah:sarah /home/sarah/workspace
+sudo chmod 700 /home/sarah/workspace
+
+sudo chown -R mike:mike /home/mike/workspace
+sudo chmod 700 /home/mike/workspace
+```
+
+![Private_workspace](images/private_workspace.png)
+
+#### Enforce Password Policy
+``` 
+sudo chage -M 30 sarah
+sudo chage -M 30 mike
+```
+
+![Password_Expiry](images/password_expiry.png)
+
+#### Enforce complexity rules
+##### Edit /etc/pam.d/common-password
+``` 
+password requisite pam_pwquality.so retry=3 minlen=8 ucredit=-1 lcredit=-1 dcredit=-1
+```
+---
+
+# Task 3 Backup Configuration for Web Servers
+
+
+
+---
