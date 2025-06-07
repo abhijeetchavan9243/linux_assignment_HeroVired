@@ -46,11 +46,11 @@ ps aux --sort=-%cpu | head -10 > $LOG_DIR/high_usage_$DATE.log
 ps aux --sort=-%mem | head -10 >> $LOG_DIR/high_usage_$DATE.log
 ```
 
-![top -b -n 1](/Users/abhijeetchavan/Developer/hero-vired/linux_assignment_HeroVired/images/Screenshot 2025-06-07 at 3.46.54 PM.png)
-![df -h](/Users/abhijeetchavan/Developer/hero-vired/linux_assignment_HeroVired/images/Screenshot 2025-06-07 at 3.47.33 PM.png)
-![du -sh](/Users/abhijeetchavan/Developer/hero-vired/linux_assignment_HeroVired/images/Screenshot 2025-06-07 at 3.48.03 PM.png)
-![ps aux --sort=-%cpu](/Users/abhijeetchavan/Developer/hero-vired/linux_assignment_HeroVired/images/Screenshot 2025-06-07 at 3.48.30 PM.png)
-![ps aux --sort=-%mem](/Users/abhijeetchavan/Developer/hero-vired/linux_assignment_HeroVired/images/Screenshot 2025-06-07 at 3.48.45 PM.png)
+![top -b -n 1](/images/Screenshot 2025-06-07 at 3.46.54 PM.png)
+![df -h](/images/Screenshot 2025-06-07 at 3.47.33 PM.png)
+![du -sh](/images/Screenshot 2025-06-07 at 3.48.03 PM.png)
+![ps aux --sort=-%cpu](/images/Screenshot 2025-06-07 at 3.48.30 PM.png)
+![ps aux --sort=-%mem](/images/Screenshot 2025-06-07 at 3.48.45 PM.png)
 
 #### To make script executable
 `chmod +x /usr/local/bin/system_monitor.sh`
