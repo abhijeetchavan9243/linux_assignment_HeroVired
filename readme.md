@@ -49,8 +49,8 @@ ps aux --sort=-%mem | head -10 >> $LOG_DIR/high_usage_$DATE.log
 ![top -b -n 1](images/top_output.png)
 ![df -h](images/df_output.png)
 ![du -sh](images/du_output.png)
-![ps aux --sort=-%cpu](cpu_output.png)
-![ps aux --sort=-%mem](ram_output.png)
+![CPU](images/cpu_output.png)
+![RAM](images/ram_output.png)
 
 #### To make script executable
 `chmod +x /usr/local/bin/system_monitor.sh`
