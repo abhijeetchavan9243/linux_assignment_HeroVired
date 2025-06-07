@@ -109,6 +109,41 @@ password requisite pam_pwquality.so retry=3 minlen=8 ucredit=-1 lcredit=-1 dcred
 
 # Task 3 Backup Configuration for Web Servers
 
+#### Create the Backup Directory
+``` 
+sudo mkdir -p /backups
+sudo chmod 755 /backups
+```
 
+#### Create Backup Scripts
+##### Sarah’s Apache Backup Script
+`sudo nano /home/sarah/apache_backup.sh`
+``` 
+#!/bin/bash
+DATE=$(date +%F)
+BACKUP_FILE="/backups/apache_backup_${DATE}.tar.gz"
+tar -czf "$BACKUP_FILE" /etc/apache2/ /var/www/html/
+tar -tzf "$BACKUP_FILE" > "/backups/apache_backup_${DATE}_contents.txt"
+```
+`sudo chmod +x /home/sarah/apache_backup.sh`
+
+##### Mike’s Apache Backup Script
+`sudo nano /home/mike/nginx_backup.sh`
+``` 
+#!/bin/bash
+DATE=$(date +%F)
+BACKUP_FILE="/backups/nginx_backup_${DATE}.tar.gz"
+tar -czf "$BACKUP_FILE" /etc/nginx/ /usr/share/nginx/html/
+tar -tzf "$BACKUP_FILE" > "/backups/nginx_backup_${DATE}_contents.txt"
+```
+`sudo chmod +x /home/mike/nginx_backup.sh`
+
+#### Schedule Cron Jobs
+``` 
+sudo crontab -u sarah -e
+0 0 * * 2 /home/sarah/apache2_backup.sh
+sudo crontab -u mike -e
+0 0 * * 2 /home/mike/nginx_backup.sh
+```
 
 ---
